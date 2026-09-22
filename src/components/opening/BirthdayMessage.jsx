@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import Button from '../ui/Button'
+import PhotoCards from '../home/PhotoCards'
 import MusicPlayer from '../music/MusicPlayer'
 import InteractiveCards from '../home/InteractiveCards'
 import styles from './BirthdayMessage.module.css'
@@ -106,6 +107,9 @@ export default function BirthdayMessage({ data }) {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* ── 3 Photo Cards Section (Placed right above Song For You) ── */}
+      <PhotoCards />
 
       {/* ── PROMPT 3 Section 1: Song For You ── */}
       <MusicPlayer song={song} />

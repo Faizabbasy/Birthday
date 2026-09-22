@@ -4,31 +4,37 @@ import Petals from './Petals'
 import styles from './GiftBox.module.css'
 
 /**
- * GiftBox — Interactive gift box that opens on click.
- * Sequence: idle → opening (lid flies up) → burst (petals + hearts scatter across full screen)
- * onOpen callback fires after the burst so Home.jsx can move to next phase.
+ * GiftBox — Interactive gift box that opens on click and triggers Flower Rain.
+ * Sequence: idle → opening (lid flies up) → burst (flower rain cascades down screen)
+ * onOpen callback fires after showing flower rain.
  */
 export default function GiftBox({ onOpen }) {
   // 'idle' | 'opening' | 'burst'
   const [state, setState] = useState('idle')
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    if (e && e.stopPropagation) e.stopPropagation()
     if (state !== 'idle') return
+
     setState('opening')
 
-    // Trigger flower burst right as lid opens up
+    // Trigger flower rain immediately as lid opens up
     setTimeout(() => {
       setState('burst')
-    }, 150)
+    }, 100)
 
-    // Notify Home page to transition after enjoying the full petal burst
+    // Notify Home page to transition after showing full flower rain shower
     setTimeout(() => {
       if (onOpen) onOpen()
-    }, 2800)
+    }, 4500)
   }
 
   return (
-    <div className={styles.root}>
+    <div
+      className={styles.root}
+      onClick={handleClick}
+      style={{ cursor: state === 'idle' ? 'pointer' : 'default' }}
+    >
       {/* Ambient glow */}
       <div className={styles.glow} aria-hidden="true" />
 
@@ -38,6 +44,7 @@ export default function GiftBox({ onOpen }) {
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.6 }}
+        onClick={handleClick}
       >
         <p className={styles.headline}>Something special for you</p>
         <p className={styles.subline}>Open your little surprise</p>
@@ -50,7 +57,6 @@ export default function GiftBox({ onOpen }) {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.7, ease: 'backOut' }}
         onClick={handleClick}
-        style={{ cursor: state === 'idle' ? 'pointer' : 'default' }}
         role="button"
         tabIndex={0}
         aria-label="Open your surprise gift"
@@ -61,6 +67,7 @@ export default function GiftBox({ onOpen }) {
           className={styles.floatWrapper}
           animate={state === 'idle' ? { y: [0, -10, 0] } : {}}
           transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+          onClick={handleClick}
         >
           {/* ── Lid ── */}
           <motion.div
@@ -78,6 +85,7 @@ export default function GiftBox({ onOpen }) {
             }}
             style={{ transformOrigin: 'top center', transformPerspective: 600 }}
             aria-hidden="true"
+            onClick={handleClick}
           >
             {/* Lid body */}
             <div className={styles.lidBody}>
@@ -94,7 +102,7 @@ export default function GiftBox({ onOpen }) {
           {/* ── Box body ── */}
           <div
             className={`${styles.box} ${state !== 'idle' ? styles.boxOpen : ''}`}
-            aria-hidden="true"
+            onClick={handleClick}
           >
             {/* Ribbon vertical */}
             <div className={styles.ribbonV} aria-hidden="true" />
@@ -125,6 +133,7 @@ export default function GiftBox({ onOpen }) {
                 transition={{ duration: 2.4, repeat: Infinity, delay: 1.5 }}
                 exit={{ opacity: 0 }}
                 aria-hidden="true"
+                onClick={handleClick}
               >
                 tap to open ✦
               </motion.p>
@@ -133,10 +142,8 @@ export default function GiftBox({ onOpen }) {
         </motion.div>
       </motion.div>
 
-      {/* ── Full Screen Petal & Heart Burst ── */}
-      <AnimatePresence>
-        {(state === 'opening' || state === 'burst') && <Petals />}
-      </AnimatePresence>
+      {/* ── Full Screen Flower Rain ── */}
+      {state !== 'idle' && <Petals />}
     </div>
   )
 }
