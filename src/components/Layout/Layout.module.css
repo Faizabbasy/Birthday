@@ -1,0 +1,64 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-cream);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.main {
+  flex: 1;
+  padding-top: var(--navbar-height);
+  display: flex;
+  flex-direction: column;
+}
+
+.pageWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ── Ambient Background Blobs ── */
+.ambientBlob1,
+.ambientBlob2 {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+}
+
+.ambientBlob1 {
+  width: 480px;
+  height: 480px;
+  background: rgba(240, 174, 191, 0.12);
+  top: -120px;
+  right: -120px;
+}
+
+.ambientBlob2 {
+  width: 360px;
+  height: 360px;
+  background: rgba(201, 169, 110, 0.08);
+  bottom: 80px;
+  left: -100px;
+}
+
+@media (max-width: 768px) {
+  .ambientBlob1 {
+    width: 280px;
+    height: 280px;
+    top: -60px;
+    right: -60px;
+  }
+
+  .ambientBlob2 {
+    width: 220px;
+    height: 220px;
+    bottom: 40px;
+    left: -60px;
+  }
+}

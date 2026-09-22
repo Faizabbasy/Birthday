@@ -1,0 +1,317 @@
+/* MusicSidebar.module.css */
+
+.sidebarWrapper {
+  position: fixed;
+  left: 20px;
+  bottom: 28px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  pointer-events: none; /* Container itself doesn't capture clicks, children do */
+}
+
+/* Floating Edge Tab (visible when sidebar is closed or as drag target) */
+.toggleTab {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px 10px 14px;
+  background: rgba(30, 24, 40, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 182, 193, 0.28);
+  border-radius: 999px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    0 0 20px rgba(255, 182, 193, 0.15);
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+}
+
+.toggleTab:hover {
+  background: rgba(45, 32, 58, 0.92);
+  border-color: rgba(255, 182, 193, 0.5);
+  box-shadow: 
+    0 12px 36px rgba(0, 0, 0, 0.45),
+    0 0 24px rgba(255, 182, 193, 0.3);
+}
+
+.tabIcon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.tabLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #ffe4e6;
+  white-space: nowrap;
+}
+
+.tabChevron {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-left: 2px;
+}
+
+/* Main Sidebar Card */
+.sidebarCard {
+  pointer-events: auto;
+  width: 320px;
+  max-width: calc(100vw - 40px);
+  background: rgba(24, 18, 33, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 192, 203, 0.22);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(255, 182, 193, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient glow inside card */
+.cardGlow {
+  position: absolute;
+  top: -40%;
+  right: -40%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 182, 193, 0.18) 0%, rgba(244, 114, 182, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.headerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fda4af;
+  background: rgba(255, 182, 193, 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 182, 193, 0.2);
+}
+
+.closeBtn {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+/* Main content layout inside card */
+.cardBody {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* Vinyl artwork */
+.vinylArt {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #111;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.vinylSpin {
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vinylCenter {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #f472b6, #ec4899);
+  border-radius: 50%;
+  border: 3px solid #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+}
+
+/* Track info */
+.trackInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.trackTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 0 2px 0;
+}
+
+.trackArtist {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+/* Scrubber section */
+.scrubberSection {
+  margin-bottom: 14px;
+}
+
+.rangeWrapper {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.rangeInput {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.rangeInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fda4af;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(253, 164, 175, 0.8);
+  transition: transform 0.15s ease;
+}
+
+.rangeInput::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.rangeFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #f472b6, #fda4af);
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.timeRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Controls */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iconBtn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.iconBtn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.playBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f472b6, #e11d48);
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.playBtn:hover {
+  box-shadow: 0 8px 24px rgba(225, 29, 72, 0.6);
+}
+
+@media (max-width: 480px) {
+  .sidebarWrapper {
+    left: 12px;
+    bottom: 20px;
+  }
+  .sidebarCard {
+    width: calc(100vw - 24px);
+  }
+}

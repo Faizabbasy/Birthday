@@ -1,0 +1,10 @@
+/* Home.module.css — Opening Experience root */
+.openingRoot {
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+}
+

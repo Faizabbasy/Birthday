@@ -1,0 +1,75 @@
+.root {
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(240,174,191,0.18) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: breathe 3s ease-in-out infinite;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  text-align: center;
+}
+
+.icon {
+  font-size: 3.5rem;
+  line-height: 1;
+  display: block;
+  animation: floatSlow 4s ease-in-out infinite;
+  filter: drop-shadow(0 4px 12px rgba(240, 174, 191, 0.4));
+}
+
+.text {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-style: italic;
+  font-weight: var(--weight-regular);
+  color: var(--color-text-muted);
+  letter-spacing: var(--tracking-wide);
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+}
+
+.ellipsis {
+  display: inline-flex;
+  align-items: baseline;
+  margin-left: 1px;
+}
+
+.dot {
+  display: inline-block;
+  color: var(--color-pink);
+  font-style: normal;
+}
+
+.progressBar {
+  width: 160px;
+  height: 2px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(to right, var(--color-pink), var(--color-gold));
+}
+
+@media (max-width: 480px) {
+  .icon { font-size: 2.8rem; }
+  .text { font-size: var(--text-base); }
+  .progressBar { width: 120px; }
+}

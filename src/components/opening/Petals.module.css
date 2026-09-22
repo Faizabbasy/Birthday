@@ -1,0 +1,44 @@
+/* Petals.module.css */
+
+.root {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.shockwave {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 182, 193, 0.85) 0%, rgba(244, 114, 182, 0.35) 45%, transparent 70%);
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  transform-origin: center;
+  user-select: none;
+  line-height: 1;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.flower {
+  filter: drop-shadow(0 6px 18px rgba(244, 114, 182, 0.65));
+}
+
+.heart {
+  filter: drop-shadow(0 6px 18px rgba(225, 29, 72, 0.55));
+}
+
+.sparkle {
+  filter: drop-shadow(0 0 14px rgba(253, 224, 71, 0.95));
+}
