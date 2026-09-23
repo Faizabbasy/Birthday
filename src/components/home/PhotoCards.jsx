@@ -6,28 +6,25 @@ const PHOTO_CARDS = [
   {
     id: 1,
     src: '/assets/moment1.png',
-    title: 'Obrolan Warm Corner',
-    date: '14 Jan 2026',
-    desc: 'Secangkir kopi hangat dan tawa manis di sudut kafe favorit kita.',
-    rotate: -3.5,
+    alt: 'Foto Momen 1',
+    rotate: -4.2,
+    tapeStyle: 'tapeLeft',
     sticker: '📌',
   },
   {
     id: 2,
     src: '/assets/moment2.png',
-    title: 'Senja di Sunset Beach',
-    date: '28 Mar 2026',
-    desc: 'Menikmati indahnya langit sore pink keemasan bersama desiran ombak.',
-    rotate: 2,
+    alt: 'Foto Momen 2',
+    rotate: 3.5,
+    tapeStyle: 'tapeCenter',
     sticker: '🌸',
   },
   {
     id: 3,
     src: '/assets/moment3.png',
-    title: 'Cahaya Lilin & Harapan',
-    date: '26 Okt 2026',
-    desc: 'Momen manis saat lilin dinyalakan dengan doa terbaik untukmu.',
-    rotate: -2,
+    alt: 'Foto Momen 3',
+    rotate: -3.0,
+    tapeStyle: 'tapeRight',
     sticker: '💖',
   },
 ]
@@ -67,11 +64,10 @@ export default function PhotoCards() {
         <span className={styles.badge}>
           ✨ Special Moments
         </span>
-        <h2 className={styles.heading}>Momen Indah Bersamamu</h2>
-        <p className={styles.subtitle}>Beberapa potret kenangan manis yang selalu membuat tersenyum.</p>
+        <h2 className={styles.heading}>Beautiful Moment with you</h2>
       </motion.div>
 
-      {/* 3 Photo Cards Grid */}
+      {/* 3 Photo Cards Grid - Photos & Paper Frames Only */}
       <motion.div
         className={styles.cardsGrid}
         variants={containerVariant}
@@ -87,39 +83,34 @@ export default function PhotoCards() {
             style={{ transform: `rotate(${card.rotate}deg)` }}
             whileHover={{
               rotate: 0,
-              y: -10,
-              scale: 1.03,
-              transition: { duration: 0.3, ease: 'easeOut' },
+              y: -12,
+              scale: 1.04,
+              transition: { duration: 0.35, ease: 'easeOut' },
             }}
             onClick={() => setSelectedPhoto(card)}
           >
-            <div className={styles.frameCard}>
-              {/* Sticker / Pin accent on top */}
+            <div className={styles.paperFrameCard}>
+              {/* Corner Pin / Sticker Accent */}
               <span className={styles.sticker} aria-hidden="true">
                 {card.sticker}
               </span>
-              <span className={styles.tapeSticker} aria-hidden="true" />
 
-              {/* Photo Box */}
+              {/* Aesthetic Washi Tape */}
+              <span className={`${styles.washiTape} ${styles[card.tapeStyle]}`} aria-hidden="true" />
+
+              {/* Pure Photo Frame Box */}
               <div className={styles.imageBox}>
-                <img src={card.src} alt={card.title} className={styles.photoImg} loading="lazy" />
-                <span className={styles.dateBadge}>{card.date}</span>
+                <img src={card.src} alt={card.alt} className={styles.photoImg} loading="lazy" />
                 <div className={styles.overlay}>
                   <span className={styles.zoomIcon}>🔍</span>
                 </div>
-              </div>
-
-              {/* Caption */}
-              <div className={styles.captionBox}>
-                <h3 className={styles.cardTitle}>{card.title}</h3>
-                <p className={styles.cardDesc}>{card.desc}</p>
               </div>
             </div>
           </motion.div>
         ))}
       </motion.div>
 
-      {/* Lightbox Modal for Enlarging Photo */}
+      {/* Lightbox Modal for Photo Preview */}
       <AnimatePresence>
         {selectedPhoto && (
           <motion.div
@@ -145,11 +136,8 @@ export default function PhotoCards() {
               >
                 ✕
               </button>
-              <img src={selectedPhoto.src} alt={selectedPhoto.title} className={styles.modalImg} />
-              <div className={styles.modalBody}>
-                <span className={styles.modalDate}>{selectedPhoto.date}</span>
-                <h3 className={styles.modalTitle}>{selectedPhoto.title}</h3>
-                <p className={styles.modalDesc}>{selectedPhoto.desc}</p>
+              <div className={styles.modalPhotoFrame}>
+                <img src={selectedPhoto.src} alt={selectedPhoto.alt} className={styles.modalImg} />
               </div>
             </motion.div>
           </motion.div>

@@ -34,7 +34,7 @@
 .ambientBlob1 {
   width: 480px;
   height: 480px;
-  background: rgba(240, 174, 191, 0.12);
+  background: rgba(192, 132, 252, 0.14);
   top: -120px;
   right: -120px;
 }
@@ -42,7 +42,7 @@
 .ambientBlob2 {
   width: 360px;
   height: 360px;
-  background: rgba(201, 169, 110, 0.08);
+  background: rgba(124, 58, 237, 0.08);
   bottom: 80px;
   left: -100px;
 }

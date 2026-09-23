@@ -1,6 +1,6 @@
 /* ============================================================
    BIRTHDAY WEBSITE — GLOBAL DESIGN SYSTEM
-   Warm cream · Soft pink · Muted burgundy · Beige / Gold
+   Royal Purple · Soft Lavender · Deep Violet · Lilac
    ============================================================ */
 
 /* ---------- Google Fonts Import ---------- */
@@ -8,24 +8,28 @@
 
 /* ---------- Design Tokens ---------- */
 :root {
-  /* Colors */
-  --color-cream:            #FAF6F0;
-  --color-cream-dark:       #F2EBE0;
-  --color-cream-deeper:     #EBE0D0;
-  --color-pink:             #F0AEBF;
-  --color-pink-light:       #FAD9E3;
-  --color-pink-muted:       #F5C6D6;
-  --color-burgundy:         #8B3A52;
-  --color-burgundy-light:   #B5556F;
-  --color-burgundy-deep:    #6B2A3E;
-  --color-beige:            #D4C4A8;
-  --color-beige-light:      #EAE0CC;
-  --color-gold:             #C9A96E;
-  --color-gold-light:       #DEC48E;
-  --color-text-dark:        #3D2B31;
-  --color-text-mid:         #5E3D47;
-  --color-text-muted:       #8A6E72;
-  --color-text-light:       #B09AA0;
+  /* Colors - All Purple Theme */
+  --color-cream:            #FAF5FF; /* Soft Lavender White */
+  --color-cream-dark:       #F3E8FF; /* Light Lilac Cream */
+  --color-cream-deeper:     #E9D5FF; /* Soft Violet Tint */
+  --color-pink:             #C084FC; /* Vibrant Lavender Accent */
+  --color-pink-light:       #F5F3FF; /* Softest Lavender Tint */
+  --color-pink-muted:       #DDD6FE; /* Muted Lilac Tint */
+  --color-burgundy:         #7E22CE; /* Deep Royal Purple */
+  --color-burgundy-light:   #9333EA; /* Vibrant Purple Accent */
+  --color-burgundy-deep:    #4C1D95; /* Dark Royal Deep Purple */
+  --color-beige:            #C4B5FD; /* Lilac Gray Accent */
+  --color-beige-light:      #EDE9FE; /* Light Lilac Accent */
+  --color-gold:             #A855F7; /* Purple Highlight */
+  --color-gold-light:       #C084FC; /* Soft Purple Glow */
+  --color-gold-dark:        #6B21A8; /* Deep Purple Gold */
+  --color-pink-deep:        #9333EA; /* Deep Purple Accent */
+  --color-pink-soft:        #F3E8FF; /* Soft Purple Accent */
+  --color-border:           #DDD6FE; /* Purple Border Tint */
+  --color-text-dark:        #2E1065; /* Dark Deep Purple */
+  --color-text-mid:         #4C1D95; /* Body Deep Purple */
+  --color-text-muted:       #6B21A8; /* Muted Purple */
+  --color-text-light:       #A855F7; /* Light Purple */
   --color-white:            #FFFFFF;
 
   /* Typography */
@@ -89,13 +93,13 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-xs: 0 1px 3px rgba(61, 43, 49, 0.06);
-  --shadow-sm: 0 2px 8px rgba(61, 43, 49, 0.08);
-  --shadow-md: 0 4px 20px rgba(61, 43, 49, 0.10);
-  --shadow-lg: 0 8px 40px rgba(61, 43, 49, 0.12);
-  --shadow-xl: 0 16px 64px rgba(61, 43, 49, 0.14);
-  --shadow-pink: 0 4px 24px rgba(240, 174, 191, 0.30);
-  --shadow-gold: 0 4px 24px rgba(201, 169, 110, 0.20);
+  --shadow-xs: 0 1px 3px rgba(76, 29, 149, 0.06);
+  --shadow-sm: 0 2px 8px rgba(76, 29, 149, 0.08);
+  --shadow-md: 0 4px 20px rgba(76, 29, 149, 0.10);
+  --shadow-lg: 0 8px 40px rgba(76, 29, 149, 0.14);
+  --shadow-xl: 0 16px 64px rgba(76, 29, 149, 0.18);
+  --shadow-pink: 0 4px 24px rgba(192, 132, 252, 0.35);
+  --shadow-gold: 0 4px 24px rgba(168, 85, 247, 0.25);
 
   /* Transitions */
   --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -134,6 +138,7 @@ body {
   line-height: var(--leading-normal);
   color: var(--color-text-dark);
   background-color: var(--color-cream);
+  background-image: radial-gradient(circle at 50% 0%, #f3e8ff 0%, #faf5ff 70%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
@@ -307,14 +312,14 @@ strong, b {
 
 /* Primary Button */
 .btn--primary {
-  background: var(--color-burgundy);
+  background: linear-gradient(135deg, #9333ea 0%, #6b21a8 100%);
   color: var(--color-white);
-  box-shadow: 0 2px 12px rgba(139, 58, 82, 0.25);
+  box-shadow: 0 4px 16px rgba(126, 34, 206, 0.35);
 }
 
 .btn--primary:hover {
-  background: var(--color-burgundy-light);
-  box-shadow: 0 4px 20px rgba(139, 58, 82, 0.35);
+  background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+  box-shadow: 0 6px 24px rgba(126, 34, 206, 0.45);
   transform: translateY(-1px);
   color: var(--color-white);
 }
@@ -331,7 +336,7 @@ strong, b {
   background: var(--color-burgundy);
   color: var(--color-white);
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(139, 58, 82, 0.20);
+  box-shadow: 0 4px 16px rgba(126, 34, 206, 0.25);
 }
 
 /* Ghost Button */

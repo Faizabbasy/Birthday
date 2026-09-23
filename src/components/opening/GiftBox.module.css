@@ -17,8 +17,8 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(240, 174, 191, 0.22) 0%,
-    rgba(201, 169, 110, 0.08) 50%,
+    rgba(192, 132, 252, 0.25) 0%,
+    rgba(168, 85, 247, 0.08) 50%,
     transparent 70%
   );
   top: 50%;
@@ -82,7 +82,7 @@
   background: var(--color-burgundy);
   border-radius: var(--radius-sm) var(--radius-sm) 0 0;
   position: relative;
-  box-shadow: 0 -2px 12px rgba(139, 58, 82, 0.20);
+  box-shadow: 0 -2px 12px rgba(76, 29, 149, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,7 +115,7 @@
   background: var(--color-gold);
   border-radius: 50% 0 0 50%;
   opacity: 0.95;
-  box-shadow: 0 2px 6px rgba(201, 169, 110, 0.3);
+  box-shadow: 0 2px 6px rgba(168, 85, 247, 0.3);
 }
 
 .bowRight {
@@ -131,7 +131,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  box-shadow: 0 2px 4px rgba(201, 169, 110, 0.4);
+  box-shadow: 0 2px 4px rgba(168, 85, 247, 0.4);
 }
 
 /* ── Box Body ── */
@@ -143,8 +143,8 @@
   position: relative;
   cursor: pointer;
   box-shadow:
-    0 8px 32px rgba(139, 58, 82, 0.22),
-    0 2px 8px rgba(139, 58, 82, 0.15);
+    0 8px 32px rgba(76, 29, 149, 0.24),
+    0 2px 8px rgba(76, 29, 149, 0.16);
   transition: box-shadow var(--transition-base), filter var(--transition-base);
   overflow: hidden;
   outline: none;
@@ -152,8 +152,8 @@
 
 .box:hover {
   box-shadow:
-    0 12px 48px rgba(139, 58, 82, 0.30),
-    0 4px 16px rgba(139, 58, 82, 0.20);
+    0 12px 48px rgba(76, 29, 149, 0.35),
+    0 4px 16px rgba(76, 29, 149, 0.2);
   filter: brightness(1.06);
 }
 
@@ -194,7 +194,7 @@
 .innerGlow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 60%, rgba(250,217,227,0.6) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 60%, rgba(233, 213, 255, 0.65) 0%, transparent 70%);
   border-radius: inherit;
   pointer-events: none;
   animation: glowPulse 1.5s ease-in-out infinite;

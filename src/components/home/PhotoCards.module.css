@@ -25,9 +25,9 @@
   font-weight: var(--weight-medium);
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
-  color: var(--color-burgundy-light);
-  background: rgba(240, 174, 191, 0.16);
-  border: 1px solid rgba(240, 174, 191, 0.35);
+  color: #7e22ce;
+  background: rgba(243, 232, 255, 0.7);
+  border: 1px solid rgba(192, 132, 252, 0.45);
   border-radius: var(--radius-full);
   padding: 4px 16px;
   display: inline-flex;
@@ -56,72 +56,105 @@
 .cardsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
-  align-items: stretch;
+  gap: var(--space-8);
+  align-items: center;
+  padding: var(--space-4) 0;
 }
 
 /* Single Card Wrapper */
 .cardOuter {
   cursor: pointer;
   perspective: 1000px;
+  position: relative;
+  transition: z-index 0.3s ease;
 }
 
-/* Polaroid / Framed Card */
-.frameCard {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 14px 14px 20px 14px;
-  border: 1px solid rgba(240, 174, 191, 0.38);
+.cardOuter:hover {
+  z-index: 20;
+}
+
+/* Authentic Aesthetic Paper Card Frame */
+.paperFrameCard {
+  background: #faf8ff;
+  background-image: linear-gradient(180deg, #ffffff 0%, #f3e8ff 100%);
+  border-radius: 16px;
+  padding: 16px 16px 28px 16px;
+  border: 1px solid rgba(192, 132, 252, 0.4);
   box-shadow:
-    0 16px 40px rgba(139, 58, 82, 0.12),
-    0 2px 10px rgba(139, 58, 82, 0.05);
+    0 18px 38px rgba(76, 29, 149, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.04),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
   position: relative;
   transition: box-shadow 0.35s ease, border-color 0.35s ease;
   display: flex;
   flex-direction: column;
 }
 
-.cardOuter:hover .frameCard {
+.cardOuter:hover .paperFrameCard {
   box-shadow:
-    0 24px 55px rgba(139, 58, 82, 0.22),
-    0 0 25px rgba(240, 174, 191, 0.3);
-  border-color: rgba(240, 174, 191, 0.65);
+    0 28px 60px rgba(76, 29, 149, 0.24),
+    0 8px 25px rgba(192, 132, 252, 0.35);
+  border-color: rgba(168, 85, 247, 0.6);
 }
 
-/* Decorative Tape / Pin Sticker on top corner */
+/* Corner Sticker / Pin */
 .sticker {
   position: absolute;
-  top: -12px;
+  top: -14px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1.4rem;
-  z-index: 10;
-  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.18));
+  font-size: 1.5rem;
+  z-index: 12;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
 }
 
-.tapeSticker {
+/* Aesthetic Washi Tape Accent - Purple Washi Tape */
+.washiTape {
   position: absolute;
-  top: -10px;
-  right: 24px;
-  width: 50px;
-  height: 20px;
-  background: rgba(255, 228, 230, 0.75);
-  border: 1px dashed rgba(244, 114, 182, 0.4);
-  transform: rotate(6deg);
-  z-index: 10;
+  height: 22px;
+  width: 65px;
+  background: rgba(233, 213, 255, 0.85);
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 5px,
+    rgba(168, 85, 247, 0.2) 5px,
+    rgba(168, 85, 247, 0.2) 10px
+  );
+  border: 1px dashed rgba(168, 85, 247, 0.5);
+  z-index: 12;
   border-radius: 2px;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
-/* Image Container inside Frame */
+.tapeLeft {
+  top: -10px;
+  left: 18px;
+  transform: rotate(-12deg);
+}
+
+.tapeCenter {
+  top: -12px;
+  right: 28px;
+  transform: rotate(8deg);
+}
+
+.tapeRight {
+  top: -10px;
+  right: 18px;
+  transform: rotate(-8deg);
+}
+
+/* Image Container inside Frame - High Aspect Photo */
 .imageBox {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 12px;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
   overflow: hidden;
-  background: #fdf2f4;
+  background: #f3e8ff;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.08);
 }
 
 .photoImg {
@@ -129,7 +162,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.55s cubic-bezier(0.34, 1.26, 0.64, 1);
 }
 
 .cardOuter:hover .photoImg {
@@ -140,7 +173,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(139, 58, 82, 0.28);
+  background: rgba(76, 29, 149, 0.3);
   backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
@@ -155,7 +188,7 @@
 
 .zoomIcon {
   font-size: 1.8rem;
-  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
   transform: scale(0.8);
   transition: transform 0.3s ease;
 }
@@ -164,142 +197,78 @@
   transform: scale(1);
 }
 
-/* Date Pill Badge */
-.dateBadge {
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #ffffff;
-  background: rgba(30, 18, 38, 0.72);
-  backdrop-filter: blur(6px);
-  padding: 3px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Caption Area */
-.captionBox {
-  margin-top: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.cardTitle {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-burgundy-deep);
-  margin: 0;
-  line-height: 1.3;
-}
-
-.cardDesc {
-  font-family: var(--font-serif);
-  font-size: 0.82rem;
-  font-style: italic;
-  color: var(--color-text-mid);
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* ── Lightbox Modal ── */
+/* Lightbox Modal */
 .modalBackdrop {
   position: fixed;
   inset: 0;
-  background: rgba(18, 10, 18, 0.78);
-  backdrop-filter: blur(10px);
+  background: rgba(18, 10, 28, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 24px;
 }
 
 .modalContent {
   background: #ffffff;
   border-radius: 24px;
-  max-width: 540px;
+  max-width: 520px;
   width: 100%;
-  overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  padding: 16px;
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.5);
   position: relative;
-  border: 1px solid rgba(255, 182, 193, 0.4);
+  border: 1px solid rgba(192, 132, 252, 0.4);
 }
 
 .modalClose {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 12;
-  width: 32px;
-  height: 32px;
+  top: -12px;
+  right: -12px;
+  z-index: 20;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: none;
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
+  background: #ffffff;
+  color: #4c1d95;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  transition: background 0.2s ease;
+  font-size: 1.1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
 }
 
 .modalClose:hover {
-  background: rgba(225, 29, 72, 0.85);
+  background: #7e22ce;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.modalPhotoFrame {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .modalImg {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  max-height: 75vh;
+  object-fit: contain;
   display: block;
 }
 
-.modalBody {
-  padding: 20px 24px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.modalTitle {
-  font-family: var(--font-serif);
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--color-burgundy-deep);
-  margin: 0;
-}
-
-.modalDate {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  color: var(--color-text-light);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.modalDesc {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  font-style: italic;
-  color: var(--color-text-mid);
-  line-height: 1.5;
-  margin: 4px 0 0 0;
-}
-
-/* ── Responsive ── */
+/* Responsive */
 @media (max-width: 768px) {
   .cardsGrid {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
-    max-width: 380px;
+    gap: var(--space-8);
+    max-width: 340px;
     margin: 0 auto;
   }
   .heading { font-size: var(--text-2xl); }

@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════
    Letter Page — Cinematic Envelope → Handwritten Letter
+   Purple Theme
    ════════════════════════════════════════════════════════ */
 
 /* ── Page root ── */
@@ -25,8 +26,8 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(240, 174, 191, 0.14) 0%,
-    rgba(201, 169, 110, 0.07) 50%,
+    rgba(192, 132, 252, 0.16) 0%,
+    rgba(168, 85, 247, 0.07) 50%,
     transparent 70%
   );
   pointer-events: none;
@@ -46,7 +47,7 @@
   position: absolute;
   animation: floatSlow 8s ease-in-out infinite;
   opacity: 0.4;
-  filter: drop-shadow(0 2px 8px rgba(240, 174, 191, 0.25));
+  filter: drop-shadow(0 2px 8px rgba(168, 85, 247, 0.28));
   user-select: none;
 }
 
@@ -103,7 +104,7 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(240, 174, 191, 0.22) 0%,
+    rgba(192, 132, 252, 0.25) 0%,
     transparent 65%
   );
   top: 50%;
@@ -128,7 +129,7 @@
   position: relative;
   width: 340px;
   height: 230px;
-  filter: drop-shadow(0 16px 40px rgba(139, 58, 82, 0.20));
+  filter: drop-shadow(0 16px 40px rgba(76, 29, 149, 0.22));
   animation: floatSlow 5s ease-in-out infinite;
 }
 
@@ -136,7 +137,7 @@
 .envBack {
   position: absolute;
   inset: 0;
-  background: linear-gradient(145deg, #fdf5ec 0%, #f5e8d8 100%);
+  background: linear-gradient(145deg, #faf5ff 0%, #f3e8ff 100%);
   border: 1.5px solid var(--color-beige);
   border-radius: var(--radius-sm);
 }
@@ -150,7 +151,7 @@
   width: 0;
   border-top: 115px solid transparent;
   border-bottom: 115px solid transparent;
-  border-left: 140px solid rgba(212, 196, 168, 0.6);
+  border-left: 140px solid rgba(196, 181, 253, 0.5);
 }
 
 /* Right flap (triangle) */
@@ -162,7 +163,7 @@
   width: 0;
   border-top: 115px solid transparent;
   border-bottom: 115px solid transparent;
-  border-right: 140px solid rgba(201, 185, 158, 0.5);
+  border-right: 140px solid rgba(167, 139, 250, 0.4);
 }
 
 /* Bottom flap (triangle) */
@@ -174,7 +175,7 @@
   height: 0;
   border-left: 170px solid transparent;
   border-right: 170px solid transparent;
-  border-bottom: 120px solid rgba(181, 163, 133, 0.45);
+  border-bottom: 120px solid rgba(139, 92, 246, 0.35);
 }
 
 /* Top lid (animated to open) */
@@ -212,7 +213,7 @@
   justify-content: center;
   z-index: 5;
   box-shadow:
-    0 4px 12px rgba(139, 58, 82, 0.30),
+    0 4px 12px rgba(76, 29, 149, 0.35),
     inset 0 1px 2px rgba(255, 255, 255, 0.15);
   animation: heartbeat 3s ease-in-out infinite;
 }
@@ -233,14 +234,14 @@
 
 .paperSheet {
   width: 220px;
-  background: #fffdf8;
+  background: #faf5ff;
   border: 1px solid var(--color-beige-light);
   border-radius: var(--radius-xs);
   padding: var(--space-4) var(--space-5);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  box-shadow: 0 8px 24px rgba(139, 58, 82, 0.1);
+  box-shadow: 0 8px 24px rgba(76, 29, 149, 0.1);
 }
 
 .paperLine {
@@ -285,8 +286,8 @@
   padding: var(--space-2) var(--space-2) var(--space-5);
   border-radius: var(--radius-xs);
   box-shadow:
-    0 6px 20px rgba(139, 58, 82, 0.14),
-    0 2px 6px rgba(139, 58, 82, 0.08);
+    0 6px 20px rgba(76, 29, 149, 0.14),
+    0 2px 6px rgba(76, 29, 149, 0.08);
   cursor: default;
   z-index: 2;
   transform: rotate(var(--rotate, 0deg));
@@ -369,48 +370,81 @@
 .lh2 { top: 30%;  right: 5px;  animation-delay: 1s; }
 .lh3 { bottom: 30%;left: 8px;  animation-delay: 2s; }
 
-/* ── The Letter Paper / Parchment ── */
+/* ── Stationery Pad Container (Outer purple frame from reference photo) ── */
+.stationeryPad {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  background: linear-gradient(135deg, #f5f0ff 0%, #ede9fe 50%, #f3e8ff 100%);
+  border: 2px solid rgba(192, 132, 252, 0.5);
+  border-radius: 24px;
+  padding: 24px 20px;
+  box-shadow:
+    0 20px 50px rgba(126, 34, 206, 0.15),
+    0 6px 16px rgba(126, 34, 206, 0.08);
+  overflow: hidden;
+}
+
+/* ── SVG Floral Corner Clusters (Top-Left & Bottom-Right) ── */
+.floralCornerTL {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 210px;
+  height: 210px;
+  pointer-events: none;
+  z-index: 3;
+  filter: drop-shadow(0 4px 10px rgba(168, 85, 247, 0.25));
+}
+
+.floralCornerBR {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 210px;
+  height: 210px;
+  pointer-events: none;
+  z-index: 3;
+  filter: drop-shadow(0 4px 10px rgba(168, 85, 247, 0.25));
+}
+
+/* ── The Inner Ruled Letter Paper Sheet ── */
 .letterPaper {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 580px;
-  background: #fffdf8;
-  border: 1px solid var(--color-beige-light);
-  border-radius: var(--radius-lg);
-  padding: var(--space-12) var(--space-10) var(--space-10);
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 44px 36px 36px;
+  border: 1px solid rgba(216, 180, 254, 0.4);
   box-shadow:
-    0 8px 32px rgba(139, 58, 82, 0.08),
-    0 2px 8px rgba(139, 58, 82, 0.04),
-    inset 0 0 80px rgba(212, 196, 168, 0.06);
+    0 4px 20px rgba(0, 0, 0, 0.03),
+    inset 0 0 40px rgba(243, 232, 255, 0.4);
 }
 
-/* Lined paper grain / texture */
-.paperGrain {
+/* Horizontal Ruled Lines across the paper (matching reference image) */
+.ruledLinesOverlay {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 32px,
-      rgba(212, 196, 168, 0.07) 32px,
-      rgba(212, 196, 168, 0.07) 33px
-    ),
-    radial-gradient(circle at 15% 15%, rgba(240, 174, 191, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 85% 85%, rgba(201, 169, 110, 0.05) 0%, transparent 50%);
+  background: repeating-linear-gradient(
+    transparent,
+    transparent 33px,
+    rgba(192, 132, 252, 0.32) 33px,
+    rgba(192, 132, 252, 0.32) 35px
+  );
+  background-position: 0 48px;
   pointer-events: none;
 }
 
-/* Left red margin line */
+/* Left margin line (soft purple margin indicator) */
 .paperMargin {
   position: absolute;
-  top: var(--space-12);
-  bottom: var(--space-8);
-  left: 48px;
-  width: 1px;
-  background: rgba(240, 174, 191, 0.28);
+  top: 0;
+  bottom: 0;
+  left: 44px;
+  width: 1.5px;
+  background: rgba(192, 132, 252, 0.4);
   pointer-events: none;
 }
 
@@ -442,14 +476,14 @@
   justify-content: center;
   margin-bottom: var(--space-8);
   padding-bottom: var(--space-6);
-  border-bottom: 1px solid var(--color-beige-light);
+  border-bottom: 1px solid rgba(196, 181, 253, 0.4);
 }
 
 .ruleFlower {
   font-size: 1.4rem;
   opacity: 0.8;
   animation: heartbeat 3s ease-in-out infinite;
-  filter: drop-shadow(0 1px 4px rgba(240, 174, 191, 0.4));
+  filter: drop-shadow(0 1px 4px rgba(168, 85, 247, 0.4));
 }
 
 /* ── "Dear You," salutation ── */
@@ -498,7 +532,7 @@
 .closing {
   margin-top: var(--space-8);
   padding-top: var(--space-8);
-  border-top: 1px solid var(--color-beige-light);
+  border-top: 1px solid rgba(196, 181, 253, 0.4);
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
@@ -571,7 +605,7 @@
 .navMoments:hover {
   color: var(--color-burgundy);
   border-color: var(--color-pink-muted);
-  background: rgba(240, 174, 191, 0.12);
+  background: rgba(192, 132, 252, 0.1);
   transform: translateY(-2px);
 }
 
@@ -579,7 +613,6 @@
    RESPONSIVE
    ══════════════════════════════════════════════ */
 @media (max-width: 900px) {
-  /* Hide polaroids on smaller screens where they'd overflow */
   .polaroidLeft,
   .polaroidRight {
     display: none;
@@ -620,8 +653,23 @@
     border-bottom-width: 100px;
   }
 
+  .stationeryPad {
+    padding: 14px 12px;
+    border-radius: 18px;
+  }
+
+  .floralCornerTL {
+    width: 140px;
+    height: 140px;
+  }
+
+  .floralCornerBR {
+    width: 140px;
+    height: 140px;
+  }
+
   .letterPaper {
-    padding: var(--space-8) var(--space-5) var(--space-8);
+    padding: 32px 20px 24px;
   }
 
   .paperMargin {
@@ -651,10 +699,5 @@
 
   .navBack, .navMoments {
     justify-content: center;
-  }
-
-  .cornerBR {
-    font-size: 1.5rem;
-    bottom: -12px;
   }
 }

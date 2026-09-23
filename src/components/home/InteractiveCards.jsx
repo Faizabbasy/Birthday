@@ -58,7 +58,7 @@ export default function InteractiveCards() {
                 </div>
                 <div className={styles.envelopeFront} />
                 <div className={styles.envelopeFlap} />
-                <span className={styles.waxSeal}>🌸</span>
+                <span className={styles.waxSeal}>💜</span>
               </div>
             </div>
 
@@ -99,7 +99,7 @@ export default function InteractiveCards() {
                       <span className={styles.lensReflect} />
                     </div>
                   </div>
-                  <span className={styles.cameraHeart}>💕</span>
+                  <span className={styles.cameraHeart}>💜</span>
                 </div>
               </div>
             </div>

@@ -217,23 +217,118 @@ export default function Letter() {
                 ))}
               </div>
 
-              {/* ── The actual letter paper / parchment ── */}
-              <div className={styles.letterPaper}>
+              {/* ── The actual letter paper / writing stationery pad ── */}
+              <div className={styles.stationeryPad}>
 
-                {/* Paper grain texture */}
-                <div className={styles.paperGrain} aria-hidden="true" />
-                <div className={styles.paperMargin} aria-hidden="true" />
+                {/* Top-Left Floral Cluster (SVG) */}
+                <div className={styles.floralCornerTL} aria-hidden="true">
+                  <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g opacity="0.95">
+                      {/* Leaves & vines */}
+                      <path d="M0 0 C60 20, 120 40, 170 15 C130 60, 90 90, 0 110 Z" fill="#7e22ce" opacity="0.15" />
+                      <path d="M-20 40 C40 60, 90 120, 110 180 C70 140, 40 100, -20 40 Z" fill="#9333ea" opacity="0.2" />
+                      <path d="M30 -10 C60 40, 140 60, 200 40 C140 80, 80 80, 30 -10 Z" fill="#a855f7" opacity="0.18" />
+                      
+                      {/* Detailed leaves */}
+                      <path d="M70 20 C100 10, 130 25, 140 45 C120 50, 90 40, 70 20 Z" fill="#6b21a8" opacity="0.4" />
+                      <path d="M20 70 C10 100, 25 130, 45 140 C50 120, 40 90, 20 70 Z" fill="#7e22ce" opacity="0.4" />
+                      <path d="M110 40 C140 30, 170 50, 175 75 C150 75, 125 65, 110 40 Z" fill="#581c87" opacity="0.35" />
+                      <path d="M40 110 C30 140, 50 170, 75 175 C75 150, 65 125, 40 110 Z" fill="#6b21a8" opacity="0.35" />
 
-                {/* Corner ornaments */}
-                <span className={styles.cornerTL} aria-hidden="true">✦</span>
-                <span className={styles.cornerTR} aria-hidden="true">✦</span>
-                <span className={styles.cornerBL} aria-hidden="true">✧</span>
-                <span className={styles.cornerBR} aria-hidden="true">🌸</span>
+                      {/* Overlapping Floral Petals - Top Left Flower 1 */}
+                      <circle cx="50" cy="45" r="32" fill="#f3e8ff" opacity="0.95" />
+                      <circle cx="35" cy="30" r="22" fill="#e9d5ff" opacity="0.9" />
+                      <circle cx="65" cy="30" r="22" fill="#e9d5ff" opacity="0.9" />
+                      <circle cx="35" cy="60" r="22" fill="#d8b4fe" opacity="0.9" />
+                      <circle cx="65" cy="60" r="22" fill="#d8b4fe" opacity="0.9" />
+                      <circle cx="50" cy="45" r="14" fill="#c084fc" />
+                      <circle cx="50" cy="45" r="7" fill="#fbbf24" />
 
-                {/* Top divider */}
-                <div className={styles.paperTopRule} aria-hidden="true">
-                  <span className={styles.ruleFlower}>🌸</span>
+                      {/* Flower 2 - Upper Right */}
+                      <circle cx="125" cy="30" r="24" fill="#faf5ff" opacity="0.95" />
+                      <circle cx="112" cy="20" r="16" fill="#f3e8ff" />
+                      <circle cx="138" cy="20" r="16" fill="#e9d5ff" />
+                      <circle cx="112" cy="40" r="16" fill="#e9d5ff" />
+                      <circle cx="138" cy="40" r="16" fill="#d8b4fe" />
+                      <circle cx="125" cy="30" r="10" fill="#a855f7" />
+                      <circle cx="125" cy="30" r="5" fill="#fef08a" />
+
+                      {/* Flower 3 - Lower Left */}
+                      <circle cx="30" cy="125" r="24" fill="#faf5ff" opacity="0.95" />
+                      <circle cx="20" cy="112" r="16" fill="#f3e8ff" />
+                      <circle cx="40" cy="112" r="16" fill="#e9d5ff" />
+                      <circle cx="20" cy="138" r="16" fill="#e9d5ff" />
+                      <circle cx="40" cy="138" r="16" fill="#d8b4fe" />
+                      <circle cx="30" cy="125" r="10" fill="#a855f7" />
+                      <circle cx="30" cy="125" r="5" fill="#fef08a" />
+
+                      {/* Small Accent Buds */}
+                      <circle cx="170" cy="35" r="8" fill="#e9d5ff" />
+                      <circle cx="170" cy="35" r="4" fill="#c084fc" />
+                      <circle cx="35" cy="170" r="8" fill="#e9d5ff" />
+                      <circle cx="35" cy="170" r="4" fill="#c084fc" />
+                      <circle cx="90" cy="85" r="10" fill="#f3e8ff" />
+                      <circle cx="90" cy="85" r="5" fill="#a855f7" />
+                    </g>
+                  </svg>
                 </div>
+
+                {/* Bottom-Right Floral Cluster (SVG) */}
+                <div className={styles.floralCornerBR} aria-hidden="true">
+                  <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g opacity="0.95">
+                      {/* Leaves & vines extending up and left */}
+                      <path d="M240 240 C180 220, 120 200, 70 225 C110 180, 150 150, 240 130 Z" fill="#7e22ce" opacity="0.15" />
+                      <path d="M260 200 C200 180, 150 120, 130 60 C170 100, 200 140, 260 200 Z" fill="#9333ea" opacity="0.2" />
+                      <path d="M210 250 C180 200, 100 180, 40 200 C100 160, 160 160, 210 250 Z" fill="#a855f7" opacity="0.18" />
+
+                      {/* Detailed leaves */}
+                      <path d="M170 220 C140 230, 110 215, 100 195 C120 190, 150 200, 170 220 Z" fill="#6b21a8" opacity="0.4" />
+                      <path d="M220 170 C230 140, 215 110, 195 100 C190 120, 200 150, 220 170 Z" fill="#7e22ce" opacity="0.4" />
+                      <path d="M130 200 C100 210, 70 190, 65 165 C90 165, 115 175, 130 200 Z" fill="#581c87" opacity="0.35" />
+                      <path d="M200 130 C210 100, 190 70, 165 65 C165 90, 175 115, 200 130 Z" fill="#6b21a8" opacity="0.35" />
+
+                      {/* Overlapping Floral Petals - Main Blossom */}
+                      <circle cx="190" cy="195" r="32" fill="#f3e8ff" opacity="0.95" />
+                      <circle cx="175" cy="180" r="22" fill="#e9d5ff" opacity="0.9" />
+                      <circle cx="205" cy="180" r="22" fill="#e9d5ff" opacity="0.9" />
+                      <circle cx="175" cy="210" r="22" fill="#d8b4fe" opacity="0.9" />
+                      <circle cx="205" cy="210" r="22" fill="#d8b4fe" opacity="0.9" />
+                      <circle cx="190" cy="195" r="14" fill="#c084fc" />
+                      <circle cx="190" cy="195" r="7" fill="#fbbf24" />
+
+                      {/* Flower 2 - Upper Blossom */}
+                      <circle cx="210" cy="115" r="24" fill="#faf5ff" opacity="0.95" />
+                      <circle cx="197" cy="105" r="16" fill="#f3e8ff" />
+                      <circle cx="223" cy="105" r="16" fill="#e9d5ff" />
+                      <circle cx="197" cy="125" r="16" fill="#e9d5ff" />
+                      <circle cx="223" cy="125" r="16" fill="#d8b4fe" />
+                      <circle cx="210" cy="115" r="10" fill="#a855f7" />
+                      <circle cx="210" cy="115" r="5" fill="#fef08a" />
+
+                      {/* Flower 3 - Left Blossom */}
+                      <circle cx="115" cy="210" r="24" fill="#faf5ff" opacity="0.95" />
+                      <circle cx="105" cy="197" r="16" fill="#f3e8ff" />
+                      <circle cx="125" cy="197" r="16" fill="#e9d5ff" />
+                      <circle cx="105" cy="223" r="16" fill="#e9d5ff" />
+                      <circle cx="125" cy="223" r="16" fill="#d8b4fe" />
+                      <circle cx="115" cy="210" r="10" fill="#a855f7" />
+                      <circle cx="115" cy="210" r="5" fill="#fef08a" />
+
+                      {/* Small Accent Buds */}
+                      <circle cx="70" cy="205" r="8" fill="#e9d5ff" />
+                      <circle cx="70" cy="205" r="4" fill="#c084fc" />
+                      <circle cx="205" cy="70" r="8" fill="#e9d5ff" />
+                      <circle cx="205" cy="70" r="4" fill="#c084fc" />
+                      <circle cx="150" cy="155" r="10" fill="#f3e8ff" />
+                      <circle cx="150" cy="155" r="5" fill="#a855f7" />
+                    </g>
+                  </svg>
+                </div>
+
+                {/* Inner white paper sheet with horizontal lines */}
+                <div className={styles.letterPaper}>
+                  <div className={styles.ruledLinesOverlay} aria-hidden="true" />
 
                 {/* Letter content with stagger */}
                 <motion.div
@@ -276,6 +371,8 @@ export default function Letter() {
 
               </div>
               {/* end letterPaper */}
+              </div>
+              {/* end stationeryPad */}
 
               {/* ── Navigation ── */}
               <motion.div

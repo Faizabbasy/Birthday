@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import Button from '../ui/Button'
+import DigitalBouquet from '../home/DigitalBouquet'
 import PhotoCards from '../home/PhotoCards'
 import MusicPlayer from '../music/MusicPlayer'
 import InteractiveCards from '../home/InteractiveCards'
@@ -8,7 +9,7 @@ import styles from './BirthdayMessage.module.css'
 /**
  * BirthdayMessage — revealed after gift opens.
  * Shows "Today is all about you." + romantic message + navigation CTAs,
- * followed by PROMPT 3 sections: "Song For You" player and "A little something for you" interactive cards.
+ * followed by Digital Bouquet, Photo Cards (Momen Indah), Song player, and interactive cards.
  */
 
 const stagger = {
@@ -108,7 +109,10 @@ export default function BirthdayMessage({ data }) {
         </motion.div>
       </div>
 
-      {/* ── 3 Photo Cards Section (Placed right above Song For You) ── */}
+      {/* ── Digital Bouquet Section (Placed right above Momen Indah Bersamamu) ── */}
+      <DigitalBouquet />
+
+      {/* ── 3 Photo Cards Section (Momen Indah Bersamamu) ── */}
       <PhotoCards />
 
       {/* ── PROMPT 3 Section 1: Song For You ── */}
