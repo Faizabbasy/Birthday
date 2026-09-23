@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { birthdayData } from '../../data/birthdayData'
+import PhotoCards from '../../components/home/PhotoCards'
 import videoSrc from '../../assets/WhatsApp Video 2026-09-22 at 19.38.26.mp4'
 import styles from './Moments.module.css'
 
@@ -35,7 +36,7 @@ export default function Moments() {
   }
 
   return (
-    <section className={styles.page} aria-label="Momen Spesial Video">
+    <section className={styles.page} aria-label="Momen Spesial">
       {/* Ambient BG Glow */}
       <div className={styles.bgGlow} aria-hidden="true" />
       <div className={styles.bgDecor} aria-hidden="true">
@@ -45,21 +46,8 @@ export default function Moments() {
       </div>
 
       <div className={styles.inner}>
-        {/* Header */}
-        <motion.div
-          className={styles.pageHeader}
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, ease: [0.4, 0, 0.2, 1] }}
-        >
-          <span className={styles.headerBadge}>
-            🎬 Video Special Moment
-          </span>
-          <h1 className={styles.headerTitle}>Momen Indah Kita</h1>
-          <p className={styles.headerSubtitle}>
-            Sebuah video manis yang merekam tawa dan kenangan berharga bersamamu, <em>{recipientNickname}</em>.
-          </p>
-        </motion.div>
+        {/* Beautiful Moment Polaroid Showcase matching sample image */}
+        <PhotoCards />
 
         {/* Video Card Showcase */}
         <motion.div
@@ -102,8 +90,8 @@ export default function Moments() {
                     </motion.button>
                   </div>
                   <div className={styles.posterTextGroup}>
-                    <h2 className={styles.posterTitle}>Momen Spesial</h2>
-                    <p className={styles.posterSubtitle}>Sentuh untuk memutar video 🌸</p>
+                    <h2 className={styles.posterTitle}>Putar Video Momen Spesial</h2>
+                    <p className={styles.posterSubtitle}>Sentuh untuk memutar video kenangan 🌸</p>
                   </div>
                 </motion.div>
               )}
@@ -114,7 +102,7 @@ export default function Moments() {
           <div className={styles.videoBody}>
             <div className={styles.videoTopRow}>
               <div>
-                <h2 className={styles.videoTitle}>Our Special Memory</h2>
+                <h2 className={styles.videoTitle}>Our Special Memory Video</h2>
                 <p className={styles.videoMeta}>
                   {date} &nbsp;·&nbsp; 📍 Momen Indah Bersama {recipientNickname}
                 </p>
@@ -178,3 +166,4 @@ export default function Moments() {
     </section>
   )
 }
+

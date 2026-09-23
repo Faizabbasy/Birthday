@@ -1,160 +1,168 @@
-/* PhotoCards.module.css */
+/* PhotoCards.module.css — Beautiful Moment Showcase — Sample Image Match */
 
 .section {
   width: 100%;
-  max-width: 960px;
-  margin: var(--space-12) auto var(--space-10);
-  padding: 0 var(--space-4);
+  max-width: 1080px;
+  margin: var(--space-8) auto var(--space-12);
+  padding: var(--space-8) var(--space-6);
   position: relative;
   z-index: 2;
+  background: transparent;
 }
 
-/* Header */
+/* Background Ambient Floating Doodles */
+.bgDoodles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bgDoodleItem {
+  position: absolute;
+  color: #c084fc;
+  opacity: 0.35;
+  user-select: none;
+  font-family: var(--font-serif);
+}
+
+.bgd1 { top: 8%; left: 6%; font-size: 1.4rem; transform: rotate(-12deg); }
+.bgd2 { top: 18%; right: 8%; font-size: 1.8rem; transform: rotate(15deg); }
+.bgd3 { bottom: 15%; left: 4%; font-size: 1.5rem; }
+.bgd4 { bottom: 25%; right: 5%; font-size: 1.6rem; opacity: 0.45; }
+.bgd5 { top: 50%; left: 2%; font-size: 1.2rem; }
+
+/* Header Container */
 .header {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
   margin-bottom: var(--space-10);
+  position: relative;
+  z-index: 1;
 }
 
-.badge {
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-widest);
-  text-transform: uppercase;
-  color: #7e22ce;
-  background: rgba(243, 232, 255, 0.7);
-  border: 1px solid rgba(192, 132, 252, 0.45);
-  border-radius: var(--radius-full);
-  padding: 4px 16px;
+/* Badge Pill: 🌸 SPECIAL MOMENTS */
+.badgePill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  background: rgba(243, 232, 255, 0.85);
+  border: 1.5px solid #d8b4fe;
+  border-radius: var(--radius-full);
+  padding: 6px 20px;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.badgeIcon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.badgeText {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.15em;
+  color: #8b5cf6;
+  text-transform: uppercase;
+}
+
+/* Title Headline with Side Doodles */
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  position: relative;
 }
 
 .heading {
   font-family: var(--font-serif);
-  font-size: var(--text-3xl);
-  font-weight: var(--weight-semibold);
-  color: var(--color-burgundy-deep);
-  letter-spacing: var(--tracking-tight);
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: #3b0764;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
   margin: 0;
+  text-shadow: 0 2px 4px rgba(126, 34, 206, 0.08);
 }
 
-.subtitle {
-  font-family: var(--font-serif);
-  font-size: var(--text-md);
-  font-style: italic;
-  color: var(--color-text-muted);
-  margin: 0;
+.titleDoodleLeft,
+.titleDoodleRight {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.85;
 }
 
-/* 3 Cards Grid */
+.titleHeartDoodle {
+  width: 24px;
+  height: 24px;
+}
+
+.titleSparkleDoodle {
+  width: 22px;
+  height: 22px;
+}
+
+/* 3 Cards Grid Layout */
 .cardsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-8);
+  gap: clamp(1rem, 2.5vw, 2rem);
   align-items: center;
-  padding: var(--space-4) 0;
+  justify-content: center;
+  padding: var(--space-4) var(--space-2);
+  position: relative;
+  z-index: 1;
 }
 
-/* Single Card Wrapper */
+/* Outer Card Container */
 .cardOuter {
+  position: relative;
   cursor: pointer;
   perspective: 1000px;
-  position: relative;
   transition: z-index 0.3s ease;
 }
 
 .cardOuter:hover {
-  z-index: 20;
+  z-index: 25;
 }
 
-/* Authentic Aesthetic Paper Card Frame */
-.paperFrameCard {
-  background: #faf8ff;
-  background-image: linear-gradient(180deg, #ffffff 0%, #f3e8ff 100%);
-  border-radius: 16px;
-  padding: 16px 16px 28px 16px;
-  border: 1px solid rgba(192, 132, 252, 0.4);
+/* Polaroid Paper Frame */
+.polaroidFrame {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px 14px 38px 14px;
   box-shadow:
-    0 18px 38px rgba(76, 29, 149, 0.12),
-    0 4px 12px rgba(0, 0, 0, 0.04),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+    0 20px 45px rgba(76, 29, 149, 0.16),
+    0 6px 16px rgba(0, 0, 0, 0.04),
+    inset 0 0 0 1px rgba(255, 255, 255, 1);
   position: relative;
   transition: box-shadow 0.35s ease, border-color 0.35s ease;
-  display: flex;
-  flex-direction: column;
+  transform-origin: center center;
 }
 
-.cardOuter:hover .paperFrameCard {
+.cardOuter:hover .polaroidFrame {
   box-shadow:
-    0 28px 60px rgba(76, 29, 149, 0.24),
-    0 8px 25px rgba(192, 132, 252, 0.35);
-  border-color: rgba(168, 85, 247, 0.6);
+    0 30px 70px rgba(76, 29, 149, 0.28),
+    0 10px 25px rgba(192, 132, 252, 0.4);
 }
 
-/* Corner Sticker / Pin */
-.sticker {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.5rem;
-  z-index: 12;
-  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
-}
-
-/* Aesthetic Washi Tape Accent - Purple Washi Tape */
-.washiTape {
-  position: absolute;
-  height: 22px;
-  width: 65px;
-  background: rgba(233, 213, 255, 0.85);
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 5px,
-    rgba(168, 85, 247, 0.2) 5px,
-    rgba(168, 85, 247, 0.2) 10px
-  );
-  border: 1px dashed rgba(168, 85, 247, 0.5);
-  z-index: 12;
-  border-radius: 2px;
-  backdrop-filter: blur(2px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-}
-
-.tapeLeft {
-  top: -10px;
-  left: 18px;
-  transform: rotate(-12deg);
-}
-
-.tapeCenter {
-  top: -12px;
-  right: 28px;
-  transform: rotate(8deg);
-}
-
-.tapeRight {
-  top: -10px;
-  right: 18px;
-  transform: rotate(-8deg);
-}
-
-/* Image Container inside Frame - High Aspect Photo */
+/* Image Container Inside Frame */
 .imageBox {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 10px;
+  border-radius: 6px;
   overflow: hidden;
   background: #f3e8ff;
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .photoImg {
@@ -166,14 +174,13 @@
 }
 
 .cardOuter:hover .photoImg {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
-/* Hover View Overlay */
-.overlay {
+.imageOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(76, 29, 149, 0.3);
+  background: rgba(76, 29, 149, 0.25);
   backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
@@ -182,19 +189,199 @@
   transition: opacity 0.3s ease;
 }
 
-.cardOuter:hover .overlay {
+.cardOuter:hover .imageOverlay {
   opacity: 1;
 }
 
-.zoomIcon {
-  font-size: 1.8rem;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
-  transform: scale(0.8);
-  transition: transform 0.3s ease;
+.zoomText {
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  background: rgba(126, 34, 206, 0.85);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.cardOuter:hover .zoomIcon {
-  transform: scale(1);
+/* ── Washi Tape Accents ── */
+.washiTapePlaid {
+  position: absolute;
+  height: 26px;
+  width: 75px;
+  background-color: rgba(225, 195, 255, 0.9);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(168, 85, 247, 0.35) 0, rgba(168, 85, 247, 0.35) 7px, transparent 0, transparent 14px),
+    repeating-linear-gradient(-45deg, rgba(168, 85, 247, 0.35) 0, rgba(168, 85, 247, 0.35) 7px, rgba(243, 232, 255, 0.8) 0, rgba(243, 232, 255, 0.8) 14px);
+  border: 1px dashed rgba(168, 85, 247, 0.6);
+  z-index: 15;
+  border-radius: 2px;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.washiTapeHearts {
+  position: absolute;
+  height: 24px;
+  width: 80px;
+  background: rgba(216, 180, 254, 0.9);
+  border: 1px dashed rgba(147, 51, 234, 0.6);
+  z-index: 15;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 4px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.washiTapeHearts span {
+  font-size: 0.65rem;
+}
+
+.topLeft {
+  top: -12px;
+  left: 14px;
+  transform: rotate(-10deg);
+}
+
+.topRight {
+  top: -12px;
+  right: 14px;
+  transform: rotate(8deg);
+}
+
+/* ── SVG Stickers ── */
+.flowerSvg {
+  position: absolute;
+  z-index: 20;
+  filter: drop-shadow(0 3px 6px rgba(76, 29, 149, 0.25));
+  pointer-events: none;
+}
+
+.ribbonSvg {
+  position: absolute;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.heartStickerSvg {
+  position: absolute;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.doodleSvg {
+  position: absolute;
+  pointer-events: none;
+  z-index: 18;
+}
+
+/* Sticker Specific Positioning matching sample image */
+.topHeartSticker {
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 32px;
+}
+
+.topLeftHeartSticker {
+  top: -14px;
+  left: -10px;
+  width: 38px;
+  height: 38px;
+  transform: rotate(-15deg);
+}
+
+.topRightFlower {
+  top: -16px;
+  right: -10px;
+  width: 48px;
+  height: 48px;
+  transform: rotate(12deg);
+}
+
+.bottomLeftBow {
+  bottom: -8px;
+  left: -12px;
+  width: 58px;
+  height: 48px;
+  transform: rotate(-10deg);
+}
+
+.middleRightBow {
+  top: 40%;
+  right: -18px;
+  width: 54px;
+  height: 46px;
+  transform: rotate(15deg);
+}
+
+.bottomRightFlowerLeaves {
+  bottom: -16px;
+  right: -14px;
+  width: 58px;
+  height: 58px;
+  transform: rotate(8deg);
+}
+
+/* On-Frame Doodles */
+.frameBottomRightHeart {
+  bottom: 8px;
+  right: 12px;
+  width: 24px;
+  height: 20px;
+}
+
+.frameBottomLeftDoodles {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.miniHeart {
+  width: 20px;
+  height: 16px;
+}
+
+.miniSquiggle {
+  width: 40px;
+  height: 12px;
+}
+
+/* Outside Floating Doodles */
+.floatingRightHeart {
+  position: absolute;
+  top: 55%;
+  right: -24px;
+  width: 22px;
+  height: 18px;
+  transform: rotate(12deg);
+}
+
+.outerDoodlesGroup {
+  position: absolute;
+  bottom: -10px;
+  right: -28px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.outerHeart {
+  width: 20px;
+  height: 16px;
+  transform: rotate(15deg);
+}
+
+.outerSparkle {
+  width: 24px;
+  height: 24px;
 }
 
 /* Lightbox Modal */
@@ -216,7 +403,7 @@
   border-radius: 24px;
   max-width: 520px;
   width: 100%;
-  padding: 16px;
+  padding: 20px;
   box-shadow: 0 35px 90px rgba(0, 0, 0, 0.5);
   position: relative;
   border: 1px solid rgba(192, 132, 252, 0.4);
@@ -227,8 +414,8 @@
   top: -12px;
   right: -12px;
   z-index: 20;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: none;
   background: #ffffff;
@@ -249,27 +436,70 @@
   transform: scale(1.1);
 }
 
-.modalPhotoFrame {
+.modalPolaroid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.modalImgBox {
   width: 100%;
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .modalImg {
   width: 100%;
-  max-height: 75vh;
+  max-height: 65vh;
   object-fit: contain;
   display: block;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+.modalCaption {
+  text-align: center;
+}
+
+.modalCaption h3 {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: #3b0764;
+  margin: 0 0 4px;
+}
+
+.modalCaption p {
+  font-family: var(--font-serif);
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: #6b21a8;
+  margin: 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+  .cardsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .heading {
+    font-size: 1.8rem;
+  }
+  .titleDoodleLeft,
+  .titleDoodleRight {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
   .cardsGrid {
     grid-template-columns: 1fr;
-    gap: var(--space-8);
     max-width: 340px;
     margin: 0 auto;
+    gap: var(--space-8);
   }
-  .heading { font-size: var(--text-2xl); }
+
+  .polaroidFrame {
+    transform: rotate(0deg) !important;
+  }
 }
+

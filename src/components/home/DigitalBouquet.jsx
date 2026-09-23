@@ -71,6 +71,15 @@ const BOUQUET_FLOWERS = [
   },
 ]
 
+const FILM_PHOTOS = [
+  { src: '/assets/moment1.png', alt: 'Momen 1' },
+  { src: '/assets/moment2.png', alt: 'Momen 2' },
+  { src: '/assets/moment3.png', alt: 'Momen 3' },
+  { src: '/assets/moment4.png', alt: 'Momen 4' },
+  { src: '/assets/photo1.png', alt: 'Momen 5' },
+  { src: '/assets/photo2.png', alt: 'Momen 6' },
+]
+
 export default function DigitalBouquet() {
   const [selectedFlower, setSelectedFlower] = useState(null)
   const [openedFlowers, setOpenedFlowers] = useState(new Set())
@@ -129,34 +138,38 @@ export default function DigitalBouquet() {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65, ease: [0.34, 1.26, 0.64, 1] }}
-          whileHover={{ scale: 1.02, rotate: -1.5, transition: { duration: 0.3 } }}
         >
           {/* Top Sprocket Perforations */}
-          <div className={styles.sprocketRow} aria-hidden="true">
-            {Array.from({ length: 18 }).map((_, i) => (
-              <span key={i} className={styles.sprocketHole} />
-            ))}
+          <div className={styles.sprocketViewport} aria-hidden="true">
+            <div className={styles.sprocketTrack}>
+              {Array.from({ length: 48 }).map((_, i) => (
+                <span key={i} className={styles.sprocketHole} />
+              ))}
+            </div>
           </div>
 
-          {/* Film Photo Frames */}
-          <div className={styles.filmPhotosRow}>
-            {[
-              { src: '/assets/moment1.png', alt: 'Momen 1' },
-              { src: '/assets/moment2.png', alt: 'Momen 2' },
-              { src: '/assets/moment3.png', alt: 'Momen 3' },
-              { src: '/assets/moment4.png', alt: 'Momen 4' },
-            ].map((img, index) => (
-              <div key={index} className={styles.filmFrame}>
-                <img src={img.src} alt={img.alt} className={styles.filmImg} loading="lazy" />
-              </div>
-            ))}
+          {/* Film Photo Frames Track with wave & scroll animation */}
+          <div className={styles.filmViewport}>
+            <div className={styles.filmTrack}>
+              {[...FILM_PHOTOS, ...FILM_PHOTOS].map((img, index) => (
+                <div
+                  key={index}
+                  className={styles.filmFrame}
+                  style={{ animationDelay: `${(index % FILM_PHOTOS.length) * 0.45}s` }}
+                >
+                  <img src={img.src} alt={img.alt} className={styles.filmImg} loading="lazy" />
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Bottom Sprocket Perforations */}
-          <div className={styles.sprocketRow} aria-hidden="true">
-            {Array.from({ length: 18 }).map((_, i) => (
-              <span key={i} className={styles.sprocketHole} />
-            ))}
+          <div className={styles.sprocketViewport} aria-hidden="true">
+            <div className={styles.sprocketTrack}>
+              {Array.from({ length: 48 }).map((_, i) => (
+                <span key={i} className={styles.sprocketHole} />
+              ))}
+            </div>
           </div>
         </motion.div>
 

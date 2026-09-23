@@ -39,23 +39,23 @@
 /* ── Film Strip Photostrip (Purple Theme Roll Film) ── */
 .filmStripContainer {
   margin: var(--space-4) 0 var(--space-3);
-  padding: 8px 10px;
+  padding: 10px 0;
   background: linear-gradient(135deg, #1e0938 0%, #2e1065 50%, #3b0764 100%);
   border: 1.5px solid rgba(192, 132, 252, 0.45);
-  border-radius: 12px;
+  border-radius: 16px;
   box-shadow:
     0 14px 36px rgba(46, 16, 101, 0.32),
     0 4px 12px rgba(0, 0, 0, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.18);
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  transform: rotate(-3.5deg); /* Left side raised up, right side lowered down */
-  transform-origin: center center;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  cursor: pointer;
-  max-width: 520px;
+  gap: 8px;
+  max-width: 580px;
   width: 100%;
+  overflow: hidden;
+  position: relative;
+  transform: rotate(-2deg);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .filmStripContainer:hover {
@@ -64,124 +64,69 @@
     0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Sprocket Hole Rows (Top & Bottom perforations) */
-.sprocketRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2px;
-  gap: 4px;
-}
-
-.sprocketHole {
-  width: 9px;
-  height: 6px;
-  background: #fdfbff;
-  opacity: 0.85;
-  border-radius: 1.5px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-/* Film Photos Row */
-.filmPhotosRow {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 0;
-  border-top: 1px dashed rgba(192, 132, 252, 0.3);
-  border-bottom: 1px dashed rgba(192, 132, 252, 0.3);
-}
-
-.filmFrame {
-  flex: 1;
-  aspect-ratio: 4 / 3;
-  background: #110524;
-  border-radius: 4px;
+/* Viewports for sprockets & photos */
+.sprocketViewport,
+.filmViewport {
+  width: 100%;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
   position: relative;
 }
 
-.filmImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease, filter 0.4s ease;
-  filter: contrast(1.05) brightness(0.98);
-}
-
-.filmFrame:hover .filmImg {
-  transform: scale(1.08);
-  filter: contrast(1.1) brightness(1.05);
-}
-
-/* Film Strip Frame (Purple Theme Photostrip Roll) */
-.filmStripContainer {
-  margin: var(--space-4) 0 var(--space-3);
-  padding: 8px 12px;
-  background: linear-gradient(135deg, #1e0938 0%, #2e1065 50%, #3b0764 100%);
-  border: 1.5px solid rgba(192, 132, 252, 0.45);
-  border-radius: 12px;
-  box-shadow:
-    0 14px 36px rgba(46, 16, 101, 0.3),
-    0 2px 8px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  transform: rotate(-3.5deg); /* Tilted: Left side up, Right side down */
-  transform-origin: center center;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  cursor: pointer;
-  max-width: 520px;
-  width: 100%;
-}
-
-.filmStripContainer:hover {
-  box-shadow:
-    0 18px 44px rgba(126, 34, 206, 0.4),
-    0 4px 14px rgba(0, 0, 0, 0.3);
-}
-
-/* Sprocket Hole Rows (Top & Bottom perforations) */
-.sprocketRow {
+/* Sprocket Track (Top & Bottom perforations) */
+.sprocketTrack {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
+  width: max-content;
   padding: 0 4px;
-  gap: 4px;
+  animation: scrollSprockets 20s linear infinite;
+  will-change: transform;
 }
 
 .sprocketHole {
-  width: 9px;
-  height: 6px;
+  flex-shrink: 0;
+  width: 10px;
+  height: 7px;
   background: #fdfbff;
-  opacity: 0.85;
-  border-radius: 1.5px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+  opacity: 0.88;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Film Photos Row */
-.filmPhotosRow {
+/* Film Photos Track (Moving left endlessly) */
+.filmViewport {
+  padding: 6px 0;
+  border-top: 1px dashed rgba(192, 132, 252, 0.35);
+  border-bottom: 1px dashed rgba(192, 132, 252, 0.35);
+}
+
+.filmTrack {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 0;
-  border-top: 1px solid rgba(192, 132, 252, 0.25);
-  border-bottom: 1px solid rgba(192, 132, 252, 0.25);
+  gap: 14px;
+  width: max-content;
+  animation: scrollPhotosLeft 22s linear infinite;
+  will-change: transform;
+  padding-right: 14px;
 }
 
+.filmTrack:hover {
+  animation-play-state: paused;
+}
+
+/* Film Frame with Wave Motion */
 .filmFrame {
-  flex: 1;
+  flex-shrink: 0;
+  width: 135px;
   aspect-ratio: 4 / 3;
   background: #110524;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), inset 0 0 8px rgba(0, 0, 0, 0.6);
   position: relative;
+  animation: photoWave 3.6s ease-in-out infinite;
+  will-change: transform;
 }
 
 .filmImg {
@@ -198,85 +143,58 @@
   filter: contrast(1.1) brightness(1.05);
 }
 
-/* Film Strip Frame (Purple Theme Photostrip Roll) */
-.filmStripContainer {
-  margin: var(--space-4) 0 var(--space-3);
-  padding: 8px 12px;
-  background: linear-gradient(135deg, #1e0938 0%, #2e1065 50%, #3b0764 100%);
-  border: 1.5px solid rgba(192, 132, 252, 0.45);
-  border-radius: 12px;
-  box-shadow:
-    0 12px 32px rgba(46, 16, 101, 0.3),
-    0 2px 8px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  transform: rotate(-3.5deg); /* Tilted: Left side up, Right side down */
-  transform-origin: center center;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  cursor: pointer;
-  max-width: 520px;
-  width: 100%;
+/* Marquee Animations */
+@keyframes scrollPhotosLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-.filmStripContainer:hover {
-  box-shadow:
-    0 16px 40px rgba(126, 34, 206, 0.4),
-    0 4px 14px rgba(0, 0, 0, 0.3);
+@keyframes scrollSprockets {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-/* Sprocket Hole Rows (Top & Bottom perforations) */
-.sprocketRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 4px;
-  gap: 4px;
+/* Wave Motion Animation (Bergelombang) */
+@keyframes photoWave {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-7px) rotate(-1.8deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(7px) rotate(1.8deg);
+  }
 }
 
-.sprocketHole {
-  width: 9px;
-  height: 6px;
-  background: #fdfbff;
-  opacity: 0.85;
-  border-radius: 1.5px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
-}
+/* Mobile responsive full width (mentok kiri kanan) */
+@media (max-width: 768px) {
+  .filmStripContainer {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    transform: none; /* Mentok Kiri Kanan alignment on mobile */
+    box-shadow: 0 10px 30px rgba(46, 16, 101, 0.35);
+  }
 
-/* Film Photos Row */
-.filmPhotosRow {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 0;
-  border-top: 1px solid rgba(192, 132, 252, 0.25);
-  border-bottom: 1px solid rgba(192, 132, 252, 0.25);
-}
-
-.filmFrame {
-  flex: 1;
-  aspect-ratio: 4 / 3;
-  background: #110524;
-  border-radius: 4px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
-  position: relative;
-}
-
-.filmImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease, filter 0.4s ease;
-  filter: contrast(1.05) brightness(0.98);
-}
-
-.filmFrame:hover .filmImg {
-  transform: scale(1.08);
-  filter: contrast(1.1) brightness(1.05);
+  .filmFrame {
+    width: 115px;
+  }
 }
 
 .title {
