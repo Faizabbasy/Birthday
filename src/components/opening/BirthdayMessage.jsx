@@ -4,6 +4,7 @@ import DigitalBouquet from '../home/DigitalBouquet'
 import PhotoCards from '../home/PhotoCards'
 import MusicPlayer from '../music/MusicPlayer'
 import InteractiveCards from '../home/InteractiveCards'
+import OnlyUsCard from '../home/OnlyUsCard'
 import styles from './BirthdayMessage.module.css'
 
 /**
@@ -120,6 +121,9 @@ export default function BirthdayMessage({ data }) {
 
       {/* ── PROMPT 3 Section 2: A little something for you ── */}
       <InteractiveCards />
+
+      {/* ── Only Us: Vinyl + Polaroid Poster Card ── */}
+      <OnlyUsCard />
     </div>
   )
 }

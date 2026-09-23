@@ -1,0 +1,449 @@
+/* ============================================================
+   PIN MODAL COMPONENT STYLES — GLASSMORPHISM & ROMANTIC LILAC
+   ============================================================ */
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Ambient glow in the background */
+.ambientGlow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.35) 0%, rgba(126, 34, 206, 0) 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatGlow {
+  0% { transform: translate(-20px, -20px) scale(0.95); }
+  100% { transform: translate(20px, 20px) scale(1.1); }
+}
+
+/* Hidden input element */
+.hiddenInput {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* Main PIN Card */
+.card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  background: rgba(30, 11, 62, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(192, 132, 252, 0.25);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(147, 51, 234, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border-radius: 28px;
+  padding: 2.25rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: rgba(192, 132, 252, 0.45);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(147, 51, 234, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+}
+
+.successCard {
+  border-color: rgba(74, 222, 128, 0.6) !important;
+  box-shadow: 0 0 40px rgba(74, 222, 128, 0.35) !important;
+}
+
+/* Shake Animation on Error */
+.shakeAnimation {
+  animation: shake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-2px, 0, 0); }
+  20%, 80% { transform: translate3d(4px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-8px, 0, 0); }
+  40%, 60% { transform: translate3d(8px, 0, 0); }
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lockBadge {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(76, 29, 149, 0.5));
+  border: 1px solid rgba(192, 132, 252, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  margin-bottom: 0.25rem;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: #FAF5FF;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: #DDD6FE;
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* Hint Box */
+.hintContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hintButton {
+  background: rgba(147, 51, 234, 0.18);
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  border-radius: 14px;
+  padding: 0.5rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #F5F3FF;
+  font-size: 0.825rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hintButton:hover {
+  background: rgba(147, 51, 234, 0.3);
+  border-color: rgba(192, 132, 252, 0.5);
+  transform: translateY(-1px);
+}
+
+.hintIcon {
+  font-size: 0.95rem;
+}
+
+.hintLabel {
+  font-weight: 600;
+  color: #C084FC;
+}
+
+.hintText {
+  color: #FAF5FF;
+  font-style: italic;
+}
+
+/* 6 Digit Display Grid */
+.digitSlots {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+.digitSlot {
+  width: 46px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(15, 4, 34, 0.6);
+  border: 1.5px solid rgba(192, 132, 252, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FAF5FF;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.slotFilled {
+  border-color: rgba(192, 132, 252, 0.65);
+  background: rgba(147, 51, 234, 0.25);
+  box-shadow:
+    0 4px 12px rgba(147, 51, 234, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.slotActive {
+  border-color: #C084FC;
+  box-shadow:
+    0 0 16px rgba(192, 132, 252, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.slotSuccess {
+  border-color: #4ADE80 !important;
+  background: rgba(74, 222, 128, 0.2) !important;
+  color: #86EFAC !important;
+  box-shadow: 0 0 16px rgba(74, 222, 128, 0.4) !important;
+}
+
+.digitChar {
+  line-height: 1;
+}
+
+/* Pulsing Cursor Line */
+.cursorPulse {
+  width: 2px;
+  height: 22px;
+  background-color: #C084FC;
+  border-radius: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* On-Screen Keypad */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 320px;
+  margin-top: 0.25rem;
+}
+
+.keyBtn {
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #FAF5FF;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.keyBtn:hover:not(:disabled) {
+  background: rgba(192, 132, 252, 0.2);
+  border-color: rgba(192, 132, 252, 0.4);
+  transform: scale(1.04);
+}
+
+.keyBtn:active:not(:disabled) {
+  transform: scale(0.96);
+  background: rgba(147, 51, 234, 0.4);
+}
+
+.keyBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.actionKey {
+  font-size: 1rem;
+  color: #DDD6FE;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ── Wrong PIN Judgmental Cat Modal Overlay ── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(15, 4, 34, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.catModalCard {
+  width: 100%;
+  max-width: 380px;
+  background: linear-gradient(145deg, rgba(38, 14, 76, 0.95), rgba(24, 8, 50, 0.98));
+  border: 1.5px solid rgba(192, 132, 252, 0.4);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(147, 51, 234, 0.35);
+  border-radius: 28px;
+  padding: 1.75rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.catImageWrapper {
+  position: relative;
+  width: 100%;
+  max-height: 240px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(192, 132, 252, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.catImage {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.catBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FAF5FF;
+  padding: 0.3rem 0.75rem;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.catContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.catText {
+  font-family: var(--font-sans);
+  font-size: 0.975rem;
+  line-height: 1.5;
+  color: #FAF5FF;
+  margin: 0;
+  background: rgba(147, 51, 234, 0.15);
+  border: 1px solid rgba(192, 132, 252, 0.25);
+  padding: 0.85rem 1rem;
+  border-radius: 16px;
+  font-weight: 500;
+}
+
+.modalActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.autoFillBtn {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(135deg, #9333EA 0%, #7E22CE 100%);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.925rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(147, 51, 234, 0.4);
+  transition: all 0.2s ease;
+}
+
+.autoFillBtn:hover {
+  background: linear-gradient(135deg, #A855F7 0%, #9333EA 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(147, 51, 234, 0.5);
+}
+
+.autoFillBtn:active {
+  transform: translateY(0);
+}
+
+.retryBtn {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(192, 132, 252, 0.25);
+  background: transparent;
+  color: #DDD6FE;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retryBtn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #FAF5FF;
+}
+
+/* Media Queries for small mobile screens */
+@media (max-width: 400px) {
+  .card {
+    padding: 1.75rem 1.25rem 1.5rem;
+  }
+
+  .digitSlots {
+    gap: 0.35rem;
+  }
+
+  .digitSlot {
+    width: 38px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+
+  .keyBtn {
+    height: 44px;
+    font-size: 1.1rem;
+  }
+}

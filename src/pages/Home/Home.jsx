@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import LoadingScreen from '../../components/opening/LoadingScreen'
+import PinModal from '../../components/opening/PinModal'
 import GiftBox from '../../components/opening/GiftBox'
 import BirthdayMessage from '../../components/opening/BirthdayMessage'
 import { birthdayData } from '../../data/birthdayData'
@@ -8,17 +9,21 @@ import styles from './Home.module.css'
 
 /**
  * Home page — Opening Experience
- * Flow: Loading → GiftBox → GiftOpening → BirthdayMessage
+ * Flow: Loading → PIN Verification → GiftBox → BirthdayMessage
  */
 export default function Home() {
-  // 'loading' | 'gift' | 'message'
+  // 'loading' | 'pin' | 'gift' | 'message'
   const [phase, setPhase] = useState('loading')
 
-  // After loading animation completes, move to gift phase
+  // After loading animation completes, move to pin verification phase
   useEffect(() => {
-    const timer = setTimeout(() => setPhase('gift'), 2200)
+    const timer = setTimeout(() => setPhase('pin'), 2200)
     return () => clearTimeout(timer)
   }, [])
+
+  const handlePinSuccess = () => {
+    setPhase('gift')
+  }
 
   const handleGiftOpen = () => {
     // Triggered when GiftBox finishes showing the flower burst animation
@@ -31,6 +36,17 @@ export default function Home() {
         {phase === 'loading' && (
           <motion.div key="loading" exit={{ opacity: 0, scale: 0.96, transition: { duration: 0.5 } }}>
             <LoadingScreen />
+          </motion.div>
+        )}
+
+        {phase === 'pin' && (
+          <motion.div
+            key="pin"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1, transition: { duration: 0.6 } }}
+            exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.4 } }}
+          >
+            <PinModal onSuccess={handlePinSuccess} />
           </motion.div>
         )}
 
@@ -58,3 +74,4 @@ export default function Home() {
     </div>
   )
 }
+
