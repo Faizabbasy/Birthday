@@ -13,15 +13,20 @@ import styles from './Home.module.css'
  */
 export default function Home() {
   // 'loading' | 'pin' | 'gift' | 'message'
-  const [phase, setPhase] = useState('loading')
+  // Skip straight to 'message' if user already unlocked this session
+  const alreadyUnlocked = sessionStorage.getItem('birthday_unlocked') === 'true'
+  const [phase, setPhase] = useState(alreadyUnlocked ? 'message' : 'loading')
 
   // After loading animation completes, move to pin verification phase
+  // (only runs when NOT already unlocked)
   useEffect(() => {
+    if (alreadyUnlocked) return
     const timer = setTimeout(() => setPhase('pin'), 2200)
     return () => clearTimeout(timer)
   }, [])
 
   const handlePinSuccess = () => {
+    sessionStorage.setItem('birthday_unlocked', 'true')
     setPhase('gift')
   }
 

@@ -1,4 +1,4 @@
-/* Petals.module.css — Box Burst Explosion Overlay */
+/* Petals.module.css — Box Burst Explosion Overlay (mobile-optimised) */
 
 .root {
   position: fixed;
@@ -14,15 +14,30 @@
   overflow: hidden;
 }
 
+/* ── Shockwave ── */
 .shockwave {
   position: absolute;
-  width: 260px;
-  height: 260px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 182, 193, 0.85) 0%, rgba(244, 114, 182, 0.35) 45%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 182, 193, 0.8) 0%,
+    rgba(244, 114, 182, 0.3) 50%,
+    transparent 70%
+  );
   pointer-events: none;
+  animation: shockwaveExpand 1.2s ease-out forwards;
+  will-change: transform, opacity;
 }
 
+@keyframes shockwaveExpand {
+  from { transform: scale(0);   opacity: 0.9; }
+  60%  { transform: scale(2.5); opacity: 0.5; }
+  to   { transform: scale(5);   opacity: 0;   }
+}
+
+/* ── Base particle ── */
 .particle {
   position: absolute;
   transform-origin: center;
@@ -30,16 +45,40 @@
   line-height: 1;
   pointer-events: none;
   will-change: transform, opacity;
+  opacity: 0;
 }
 
+/* ── Burst keyframe — uses CSS custom properties per element ── */
+.burst {
+  animation: burstFly var(--dur, 3.5s) var(--delay, 0s) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes burstFly {
+  0%   { transform: translate(0, 0)                              rotate(0deg)           scale(0.1); opacity: 0; }
+  15%  { transform: translate(calc(var(--tx) * 0.3), calc(var(--ty) * 0.3)) rotate(calc(var(--rot) * 0.25)) scale(1.4); opacity: 1; }
+  70%  { transform: translate(var(--tx), var(--ty))              rotate(calc(var(--rot) * 0.75)) scale(0.9); opacity: 1; }
+  100% { transform: translate(calc(var(--tx) * 1.1), calc(var(--ty) + 180px)) rotate(var(--rot)) scale(0.3); opacity: 0; }
+}
+
+/* ── Type-specific colours (no expensive blur on mobile) ── */
 .flower {
-  filter: drop-shadow(0 6px 18px rgba(244, 114, 182, 0.7));
+  filter: drop-shadow(0 4px 10px rgba(244, 114, 182, 0.6));
 }
 
 .heart {
-  filter: drop-shadow(0 6px 18px rgba(225, 29, 72, 0.6));
+  filter: drop-shadow(0 4px 10px rgba(225, 29, 72, 0.55));
 }
 
 .sparkle {
-  filter: drop-shadow(0 0 16px rgba(253, 224, 71, 1));
+  filter: drop-shadow(0 0 8px rgba(253, 224, 71, 0.9));
+}
+
+/* ── On small screens: remove drop-shadow entirely (biggest perf win) ── */
+@media (max-width: 768px) {
+  .flower,
+  .heart,
+  .sparkle {
+    filter: none;
+  }
 }

@@ -12,7 +12,7 @@ export const birthdayData = {
   /* ── Identities ── */
   recipientName: "Namamu",          // Name of the birthday person
   recipientNickname: "hani bani switi", // Nickname / term of endearment
-  senderName: "Seseorang Spesial",  // Your name
+  senderName: "fafaiiii",  // Your name
   age: 22,                          // Birthday age being celebrated
   date: "26 Oktober 2026",        // Birthday date string
 
@@ -38,13 +38,15 @@ export const birthdayData = {
     title: "Untukmu, di Hari Spesial Ini",
     subtitle: "Sebuah surat kecil dari hatiku",
     paragraphs: [
-      "Hei, kamu — si orang yang selalu berhasil membuat hariku lebih cerah hanya dengan senyummu. Hari ini adalah harimu, dan aku ingin kamu tahu betapa berharganya kamu.",
-      "Ada banyak hal yang ingin aku ucapkan, tapi kata-kata sering kali terasa kurang untuk menggambarkan seberapa spesialnya kamu. Kamu adalah salah satu orang terbaik yang pernah aku kenal — tulus, hangat, dan luar biasa dengan cara yang hanya kamu yang bisa.",
-      "Semoga ulang tahunmu tahun ini membawa hal-hal indah yang kamu layak dapatkan. Semoga setiap doamu dikabulkan, setiap impianmu tercapai, dan setiap langkahmu selalu diiringi kebahagiaan.",
-      "Terima kasih sudah ada. Terima kasih sudah menjadi dirimu yang apa adanya. Itu saja sudah lebih dari cukup.",
+      "haiiiii sayaanggg, selamatt ulangg tahunn sayaangggkuuuu cintaakuuuuu duniaakuuuu bayiii kicikkuuuhh princessskuuhh. wishhh u all the bestt sayaanggg, semogaaa citaa citaaa yangg kamuuu inginkann bisaa terwujuddd dan tercapaaii yaaaa bebebbbb, panjanggg umurrr sehattt selaluuu and berbaktii kepadaa orangg tuaaa dann baikk hatii selaluuu sayaangg di rendahkann hatinyaa dan semogaaa rezekii selaluuu datanggg, aamiiiinnnnnn.",
+      "semangattt teruss yaaa sayaangg, jangann pernaaa putuss asaaa untuk mengejar impiann kamuuu, semogaaa di umurr iniii kamuu di berii keberkahann penuhh buatt kamuu bebbb, jangann lupaa bersyukurr apaa yang udaa didapatt dan jangann besarr hatiii yaaa.",
+      "terimakasiiii udaaa mauu sabarr samaa akuu, makasii jugaa udaa sayaangg kee akuuu whehehehh, semogaaa kamuu sekarangg bisaa lebiii baikk darii taunn kemarinn dan diberii kelancarannn, semogaa kamuu jadii orangg suksess, solehahh, berbaktii pada orang tuaa, dann rendahh hatii kayaa akuu rendah hatii azzekk, prengg....",
+      "pokonyaa akuu selaluu doainn kamuu yang terbaikkk buatt kamuuhh. happyy birthdayyy yaaa sayaanggg, im so proudddd of uuuuu beibehhhh🤍🤍🤍.",
+      "hadiahnyaa nantiinyakk nyusulll wheheheheh, semangatt teruss bebebb ngejalaninn hari harinyaaa akuu selaluu mensuprottt kamuu dan dukungg kamuu dan selaluu adaa buat kamuu kalo kamuu adaaa sesuatuu bilangg samaa akuu nyakkk.",
+      "lovee uu moreeee sayaangggkuuu cintaakuuu cantikkuuu gemoyyyy 😘😘😍😍😍🥰🥰🥰🤍🤍🤍.",
     ],
     closing:    "Dengan sepenuh hati,",
-    signature:  "Seseorang yang peduli padamu",
+    signature:  "fafaiiii",
     postscript: "P.S. — Kamu luar biasa, dan jangan pernah lupakan itu. 🌸",
   },
 

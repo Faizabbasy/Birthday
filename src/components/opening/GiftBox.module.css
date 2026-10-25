@@ -223,3 +223,26 @@
   .bowRight { width: 22px; height: 14px; }
   .bowKnot  { width: 10px; height: 10px; }
 }
+
+/* ── CSS float animation (replaces framer-motion repeat: Infinity) ── */
+.floating {
+  animation: floatBox 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes floatBox {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* ── CSS hint pulse ── */
+.hintPulse {
+  animation: hintFade 2.4s ease-in-out infinite;
+  animation-delay: 1.5s;
+  opacity: 0;
+}
+
+@keyframes hintFade {
+  0%, 100% { opacity: 0; }
+  50%       { opacity: 1; }
+}

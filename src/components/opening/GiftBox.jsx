@@ -62,13 +62,11 @@ export default function GiftBox({ onOpen }) {
         aria-label="Open your surprise gift"
         onKeyDown={(e) => e.key === 'Enter' && handleClick()}
       >
-        {/* Floating wrapper */}
-        <motion.div
-          className={styles.floatWrapper}
-          animate={state === 'idle' ? { y: [0, -10, 0] } : {}}
-          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-          onClick={handleClick}
-        >
+        {/* Floating wrapper — CSS float animation, no JS loop */}
+          <div
+            className={`${styles.floatWrapper} ${state === 'idle' ? styles.floating : ''}`}
+            onClick={handleClick}
+          >
           {/* ── Lid ── */}
           <motion.div
             className={styles.lid}
@@ -123,23 +121,17 @@ export default function GiftBox({ onOpen }) {
             </AnimatePresence>
           </div>
 
-          {/* Click hint */}
-          <AnimatePresence>
-            {state === 'idle' && (
-              <motion.p
-                className={styles.hint}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: [0, 1, 0] }}
-                transition={{ duration: 2.4, repeat: Infinity, delay: 1.5 }}
-                exit={{ opacity: 0 }}
-                aria-hidden="true"
-                onClick={handleClick}
-              >
-                tap to open ✦
-              </motion.p>
-            )}
-          </AnimatePresence>
-        </motion.div>
+          {/* Click hint — CSS pulse animation */}
+          {state === 'idle' && (
+            <p
+              className={`${styles.hint} ${styles.hintPulse}`}
+              aria-hidden="true"
+              onClick={handleClick}
+            >
+              tap to open ✦
+            </p>
+          )}
+        </div>
       </motion.div>
 
       {/* ── Full Screen Flower Rain ── */}

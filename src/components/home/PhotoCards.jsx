@@ -151,7 +151,7 @@ const PHOTO_CARDS = [
   {
     id: 1,
     src: '/assets/moment1.png',
-    alt: 'Secangkir Kopi & Surat',
+    alt: 'Di lapangan basket bareng kamu',
     rotate: -4.5,
     tapeType: 'plaid',
     tapePosition: 'topLeft',
@@ -163,7 +163,7 @@ const PHOTO_CARDS = [
   {
     id: 2,
     src: '/assets/moment2.png',
-    alt: 'Senja di Pantai Bersamamu',
+    alt: 'Wisuda — hari yang penuh kebahagiaan',
     rotate: -0.8,
     tapeType: 'plaid',
     tapePosition: 'topLeft',
@@ -175,7 +175,7 @@ const PHOTO_CARDS = [
   {
     id: 3,
     src: '/assets/moment3.png',
-    alt: 'Kue Ulang Tahun Manis',
+    alt: 'Di tepi pantai bersamamu',
     rotate: 4.8,
     tapeType: 'heartPattern',
     tapePosition: 'topRight',
@@ -183,6 +183,18 @@ const PHOTO_CARDS = [
     hasMiddleRightBow: true,
     hasBottomRightFlowerLeaves: true,
     hasOuterDoodles: true,
+  },
+  {
+    id: 4,
+    src: '/assets/moment4.png',
+    alt: 'Momen spesial kita yang keempat',
+    rotate: -3.2,
+    tapeType: 'plaid',
+    tapePosition: 'topLeft',
+    hasTopHeart: true,
+    hasTopRightFlower: true,
+    hasBottomRightHeartDoodle: true,
+    hasRightFloatingHeart: true,
   },
 ]
 

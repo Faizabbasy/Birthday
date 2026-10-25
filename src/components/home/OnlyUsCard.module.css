@@ -209,8 +209,8 @@
   top: 46%;
   left: 50%;
   transform: translate(-42%, -48%);
-  width: 360px;
-  height: 380px;
+  width: 390px;
+  height: 420px;
   z-index: 5;
   pointer-events: auto;
 }
@@ -279,6 +279,13 @@
   left: 20px;
   transform: rotate(-4deg);
   z-index: 8;
+}
+
+.polaroid4 {
+  top: 80px;
+  left: 170px;
+  transform: rotate(12deg);
+  z-index: 5;
 }
 
 /* Pin / Tape Decorative Accent */
@@ -351,8 +358,8 @@
   }
 
   .polaroidCluster {
-    width: 300px;
-    height: 340px;
+    width: 320px;
+    height: 380px;
     transform: translate(-38%, -42%);
   }
 
@@ -381,6 +388,12 @@
     top: 170px;
     left: 10px;
     transform: rotate(-3deg);
+  }
+
+  .polaroid4 {
+    top: 65px;
+    left: 140px;
+    transform: rotate(10deg);
   }
 
   .bottomQuote {
@@ -423,8 +436,8 @@
   }
 
   .polaroidCluster {
-    width: 250px;
-    height: 310px;
+    width: 270px;
+    height: 340px;
     transform: translate(-30%, -42%);
   }
 
@@ -450,6 +463,12 @@
   .polaroid3 {
     top: 145px;
     left: 5px;
+  }
+
+  .polaroid4 {
+    top: 55px;
+    left: 115px;
+    transform: rotate(10deg);
   }
 
   .bottomQuote {

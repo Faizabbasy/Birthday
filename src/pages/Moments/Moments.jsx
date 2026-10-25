@@ -2,13 +2,17 @@ import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { birthdayData } from '../../data/birthdayData'
+import { useMusic } from '../../context/MusicContext'
 import PhotoCards from '../../components/home/PhotoCards'
 import videoSrc from '../../assets/WhatsApp Video 2026-09-22 at 19.38.26.mp4'
 import styles from './Moments.module.css'
 
 export default function Moments() {
   const { recipientNickname, date, decorations } = birthdayData
+  const music = useMusic()
   const videoRef = useRef(null)
+  // Track whether music was playing before video started, so we only resume if WE paused it
+  const musicWasPlaying = useRef(false)
 
   const [isPlaying, setIsPlaying] = useState(false)
   const [liked, setLiked] = useState(false)
@@ -18,6 +22,26 @@ export default function Moments() {
     setIsPlaying(true)
     if (videoRef.current) {
       videoRef.current.play()
+    }
+  }
+
+  // Called when video actually starts playing
+  const handleVideoPlay = () => {
+    setIsPlaying(true)
+    if (music.isPlaying) {
+      musicWasPlaying.current = true
+      music.pause()
+    } else {
+      musicWasPlaying.current = false
+    }
+  }
+
+  // Called when video pauses or ends — resume music only if we paused it
+  const handleVideoStop = () => {
+    setIsPlaying(false)
+    if (musicWasPlaying.current) {
+      musicWasPlaying.current = false
+      music.play()
     }
   }
 
@@ -63,8 +87,9 @@ export default function Moments() {
               src={videoSrc}
               className={styles.videoElement}
               controls={isPlaying}
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
+              onPlay={handleVideoPlay}
+              onPause={handleVideoStop}
+              onEnded={handleVideoStop}
               preload="metadata"
               playsInline
             />

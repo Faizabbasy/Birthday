@@ -72,12 +72,12 @@ const BOUQUET_FLOWERS = [
 ]
 
 const FILM_PHOTOS = [
-  { src: '/assets/moment1.png', alt: 'Momen 1' },
-  { src: '/assets/moment2.png', alt: 'Momen 2' },
-  { src: '/assets/moment3.png', alt: 'Momen 3' },
-  { src: '/assets/moment4.png', alt: 'Momen 4' },
-  { src: '/assets/photo1.png', alt: 'Momen 5' },
-  { src: '/assets/photo2.png', alt: 'Momen 6' },
+  { src: '/assets/image1.png', alt: 'Momen kita 1' },
+  { src: '/assets/image2.png', alt: 'Momen kita 2' },
+  { src: '/assets/image3.png', alt: 'Momen kita 3' },
+  { src: '/assets/image4.png', alt: 'Momen kita 4' },
+  { src: '/assets/image5.png', alt: 'Momen kita 5' },
+  { src: '/assets/image6.png', alt: 'Momen kita 6' },
 ]
 
 export default function DigitalBouquet() {

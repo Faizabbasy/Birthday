@@ -8,9 +8,10 @@ import styles from './OnlyUsCard.module.css'
  */
 
 const photos = [
-  { src: '/assets/moment1.png', alt: 'Momen kita', posClass: 'polaroid1' },
-  { src: '/assets/moment2.png', alt: 'Waktu bersama', posClass: 'polaroid2' },
-  { src: '/assets/moment3.png', alt: 'Kenangan indah', posClass: 'polaroid3' },
+  { src: '/assets/moment1.png', alt: 'Di lapangan basket bareng kamu', posClass: 'polaroid1' },
+  { src: '/assets/moment2.png', alt: 'Wisuda — hari yang penuh kebahagiaan', posClass: 'polaroid2' },
+  { src: '/assets/moment3.png', alt: 'Di tepi pantai bersamamu', posClass: 'polaroid3' },
+  { src: '/assets/moment4.png', alt: 'Momen spesial kita', posClass: 'polaroid4' },
 ]
 
 const containerVariants = {
